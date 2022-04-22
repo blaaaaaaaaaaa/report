@@ -1,0 +1,33 @@
+body {
+    background-color: skyblue;
+}
+
+.about {
+    text-align: center;
+}
+
+.arubrik {
+    letter-spacing: 2;
+}
+
+.bild {
+    align-items: center;
+}
+
+.whole {
+    text-align: center;
+}
+
+.topp {
+    text-align: center;
+}
+
+.nav {
+    text-align: center;
+    align-items: center;
+}
+
+.navlink {
+    border-radius: 10;
+    text-align: center;
+}

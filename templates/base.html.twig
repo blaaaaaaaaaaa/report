@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Välkommen!{% endblock %}</title>
+        <link rel="stylesheet" href="style/style.css"/>
+    </head>
+    <body>
+        <div class="siteheader">OBJEKTORIENTERADE WEBBTEKNOLOGIER</div>
+
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <a href="{{ path("home") }}">HOME</a>
+                    <a href="{{ path("about") }}">ABOUT</a>
+                    <a href="{{ path("report") }}">REPORT</a>
+                    <a href="{{ path("card") }}">CARD</a>
+                </ul>
+            </nav>
+        </div>
+
+        {% block content %}{% endblock %}
+
+        <div class="sitefooter">© 2022 by Isabella</div>
+    </body>
+</html>

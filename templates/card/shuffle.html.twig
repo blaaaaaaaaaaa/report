@@ -1,0 +1,28 @@
+{% include 'incl/header.html.twig' %}
+<title>Shuffle</title>
+<body>
+    {% include 'incl/nav.html.twig' %}
+
+    <div class="content-cards">
+
+        <h1>Shuffle</h1>
+
+<p>
+{# Shuffled cards = {{ shuffled_cards }} #}
+
+</p>
+        <div class="card">
+            {% for card in shuffled_cards %}
+            <div class="cards">
+                {{ card.getCard() }}
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% include 'incl/footer.html.twig' %}
+
+</body>
+</html>

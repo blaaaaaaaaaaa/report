@@ -1,0 +1,33 @@
+{% include "base.html.twig" %}
+
+{# {% block title %}Dice{% endblock %} #}
+
+{% block content %}
+
+<body>
+    {% include 'nav.twig' %}
+    <div class="container">
+        <h2>{{ title }}</h2>
+
+        <div class=".single-card">
+            {% if count > 0 %}
+            <div class="column">
+                {% for card in card_deck %} <img class="cards" src="{{ asset("../img/cards/" ~ card ~ ".svg" ) }}"
+                    width="200" height="280" alt="{{card}}">
+                {% endfor %}
+            </div>
+            <div>
+                <p>Kort kvar: {{count}}</p>
+            </div>
+            {% else %}
+            <div>
+                <p>Inga kort kvar!</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% include 'footer.twig' %}
+</body>
+
+{% endblock %}
