@@ -4,8 +4,8 @@ namespace App\Card;
 
 class Deck {
     public $numCards = 52;
-    private $values = array('2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A');
-    private $values2 = array('Hjärter', 'Klöver', 'Ruter', 'Spader');
+    private $values = array('2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'D', 'K', 'A');
+    private $values2 = array('H', 'K', 'R', 'S');
     private $allCards;
     private $resetCards = [];
 
@@ -22,7 +22,7 @@ class Deck {
         return $this->allCards;
     }
 
-    public function shuffe(array $cards) {
+    public function shuffle(array $cards) {
         $this->resetCards = null;
         $sumCards = count($cards);
         $this->numCards = 52;

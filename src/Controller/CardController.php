@@ -72,7 +72,7 @@ class CardController extends AbstractController
         $data = [
             'title' => 'Du fick dessa kort:',
             'card_deck' => $card->draw(),
-            'count' => $card->getNumberCards(),
+            'count' => $card->getNumCards(),
             // 'die_as_string' => $die->getAsString(),
             // 'link_to_roll' => $this->generateUrl('dice-graphic-roll', ['numRolls' => 5,]),
         ];
@@ -96,7 +96,7 @@ class CardController extends AbstractController
         $data = [
             'title' => 'Du drog följande:',
             'number' => $number,
-            'card_deck' => $card->drawNumber($number),
+            'card_deck' => $card->drawNum($number),
             'count' => $card->getNumCards(),
         ];
         $session->set("deck", $card);

@@ -1,17 +1,16 @@
-{% include "base.html.twig" %}
+{% extends "base.html.twig" %}
 
 {# {% block title %}Dice{% endblock %} #}
 
 {% block content %}
 
 <body>
-    {% include 'nav.twig' %}
     <div class="container">
         <h2>{{ title }}</h2>
 
         {% if count > 0 %}
         <div class="single-card">
-            <img class="cards" src="{{ asset("../img/cards/" ~ card_deck ~ ".svg" ) }}" width="200" height="280"
+            <img class="cards" src="{{ asset("../img/cards/" ~ card ~ ".png") }}" width="200" height="280"
                 alt="{{card_deck}}">
         </div>
         <div>
@@ -25,8 +24,6 @@
 
 
     </div>
-
-    {% include 'footer.twig' %}
 </body>
 
 {% endblock %}

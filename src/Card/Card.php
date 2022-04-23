@@ -18,8 +18,8 @@ class Card
     public function cardDeckDraw2( SessionInterface $session, $numDraw): Response
     {
         $deckOne = $session->get("deckOne") ?? new \App\Deck();
-        $colors = ["Hjärter", "Klöver", "Ruter", "Spader"];
-        $types = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+        $colors = ["H", "K", "R", "S"];
+        $types = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "D", "K"];
 
         foreach ($colors as &$color) {
             foreach ($types as &$type) {
