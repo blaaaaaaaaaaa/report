@@ -1,26 +1,15 @@
 {% extends "base.html.twig" %}
-<title>Shuffle</title>
-<body>
 
-    <div class="content-cards">
+{% block title %}Shuffle{% endblock %}
 
-        <h1>Shuffle</h1>
+{% block content %}
 
-<p>
-{# Shuffled cards = {{ shuffled_cards }} #}
+<h1 class="arubrik">Shuffle cards</h1>
 
-</p>
-        <div class="card">
-            {% for card in shuffled_cards %}
-            <div class="cards">
-                {{ card.getCard() }}
-
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-
-</body>
-</html>
+<div class="content">
+    {% for card in shuffled_cards %}
+        {{ card.getCard() }}
+</div>
+    {% endfor %}
 
 {% endblock %}

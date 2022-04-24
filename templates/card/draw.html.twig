@@ -1,29 +1,19 @@
 {% extends "base.html.twig" %}
 
-{# {% block title %}Dice{% endblock %} #}
+{% block title %}Draw{% endblock %}
 
 {% block content %}
 
-<body>
-    <div class="container">
-        <h2>{{ title }}</h2>
+<h1 class="arubrik">Draw one card</h1>
+<div class="content">
+    {% if count > 0 %}
+        <img class="cards" src="{{ asset("../img/cards/" ~ card_deck ~ ".png") }}" width="200" height="280" alt="{{card_deck}}">
 
-        {% if count > 0 %}
-        <div class="single-card">
-            <img class="cards" src="{{ asset("../img/cards/" ~ card ~ ".png") }}" width="200" height="280"
-                alt="{{card_deck}}">
-        </div>
-        <div>
-            <p>Kort kvar: {{count}}</p>
-        </div>
-        {% else %}
-        <div>
-            <p>Inga kort kvar!</p>
-        </div>
-        {% endif %}
+    <p>Kort kvar: {{count}}</p>
 
-
-    </div>
-</body>
+    {% else %}
+        <p>Nu finns det inga kort kvar!</p>
+    {% endif %}
+</div>
 
 {% endblock %}
