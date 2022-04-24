@@ -1,4 +1,4 @@
-{% extends "base.html.twig" %}
+{% include "base.html.twig" %}
 
 {% block title %}Shuffle{% endblock %}
 
@@ -9,7 +9,7 @@
 <div class="content">
     {% for card in shuffled_cards %}
         {{ card.getCard() }}
-</div>
     {% endfor %}
+</div>
 
 {% endblock %}
