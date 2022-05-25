@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class CardController extends AbstractController
 {
@@ -20,6 +21,10 @@ class CardController extends AbstractController
             'shuffle' => "/card/deck/shuffle",
             'draw' => "/card/deck/draw",
             'drawNum' => "/card/deck/draw/2",
+            'game' => "/card/deck/deal/2/5",
+            'cardDeck2' => "/card/cardDeck2",
+            'allJson' => "/card/api/deck",
+            'shuffleJson' => "/card/api/deck/shuffle",
         ]);
     }
 
@@ -73,8 +78,6 @@ class CardController extends AbstractController
             'title' => 'Du fick dessa kort:',
             'card_deck' => $card->draw(),
             'count' => $card->getNumCards(),
-            // 'die_as_string' => $die->getAsString(),
-            // 'link_to_roll' => $this->generateUrl('dice-graphic-roll', ['numRolls' => 5,]),
         ];
 
         $session->set("deck", $card);
@@ -84,7 +87,7 @@ class CardController extends AbstractController
 
 
     /**
-     * @Route("/card/deck/draw/{number}", name="dice-graphic-rolls")
+     * @Route("/card/deck/draw/{number}", name="drawNum")
      */
     public function drawNumber(
         int $number,
@@ -102,5 +105,32 @@ class CardController extends AbstractController
         $session->set("deck", $card);
 
         return $this->render('card/drawNumber.html.twig', $data);
+    }
+
+    /**
+     * @Route("/card/deck/deal/{players}/{cards}", name="deal")
+     */
+    public function cardGame(
+        int $players,
+        int $cards,
+        SessionInterface $session,
+        Request $request
+    ): Response {
+        $card = $session->get("deck") ?? null;
+        if ($card == null) {
+            $card = new \App\Card\Deck();
+            $session->set("deck", $card);
+        }
+
+        $data = [
+            'title' => 'Players',
+            'players' => $players,
+            'cards' => $cards,
+            'game' => $card->drawNum($cards),
+            'game2' => $card->drawNum($cards),
+            'count' => $card->getNumCards(),
+        ];
+
+        return $this->render('card/game.html.twig', $data);
     }
 }

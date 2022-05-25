@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Game{% endblock %}
+
+{% block content %}
+
+<h1 class="arubrik">Game</h1>
+<div class="content">
+    {% if count >= players * cards %}
+    <h2>Player 1</h2>
+        {% for card in game %} <img class="cards" src="{{ asset("../img/cards/" ~ card ~ ".png" ) }}" width="200" height="280" alt="{{card}}">
+    {% endfor %}
+    <br>
+    <h2>Player 2</h2>
+    {% for card in game2 %} <img class="cards" src="{{ asset("../img/cards/" ~ card ~ ".png" ) }}" width="200" height="280" alt="{{card}}">
+    {% endfor %}
+</div>
+<div class="content">
+    <p>Kort kvar: {{count}}</p>
+</div>
+    {% else %}
+    <div>
+        <p>Nu finns det inga kort kvar!</p>
+    </div>
+    {% endif %}
+
+{% endblock %}

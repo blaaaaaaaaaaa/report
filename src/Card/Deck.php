@@ -74,4 +74,22 @@ class Deck {
         } else
             return count($this->allCards);
     }
+
+    public function deal(int $number) {
+        if (count($this->allCards) == 0) {
+            return;
+        }
+
+        $x = 0;
+        while ($x <= $number - 1) {
+            shuffle($this->allCards);
+            $cards = $this->allCards[0];
+            array_shift($this->allCards);
+            $this->resetCards[] = $cards;
+            $resetCards[] = $cards;
+            $x++;
+        }
+
+        return $resetCards;
+    }
 }
