@@ -143,7 +143,7 @@ class CardController extends AbstractController
         $data = [
             'card_deck' => $deck->deck(),
         ];
-        
+
         return $this->render('card/deck2.html.twig', $data);
     }
 }

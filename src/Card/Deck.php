@@ -4,14 +4,16 @@ namespace App\Card;
 
 use App\Card\Card;
 
-class Deck {
+class Deck
+{
     public $numCards = 52;
     private $values = array('2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'D', 'K', 'A');
     private $values2 = array('H', 'K', 'R', 'S');
     private $allCards;
     private $resetCards = [];
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->allCards = [];
         foreach ($this->values2 as $value2) {
             foreach ($this->values as $value) {
@@ -20,11 +22,13 @@ class Deck {
         }
     }
 
-    public function deck() {
+    public function deck()
+    {
         return $this->allCards;
     }
 
-    public function shuffle(array $cards) {
+    public function shuffle(array $cards)
+    {
         $this->resetCards = null;
         $sumCards = count($cards);
         $this->numCards = 52;
@@ -39,7 +43,8 @@ class Deck {
         return $cards;
     }
 
-    public function draw() {
+    public function draw()
+    {
         if (count($this->allCards) == 0) {
             return;
         }
@@ -52,7 +57,8 @@ class Deck {
         return $cards;
     }
 
-    public function drawNum(int $number) {
+    public function drawNum(int $number)
+    {
         if (count($this->allCards) == 0) {
             return;
         }
@@ -70,14 +76,17 @@ class Deck {
         return $resetCards;
     }
 
-    public function getNumCards(): int {
+    public function getNumCards(): int
+    {
         if ($this->numCards - count($this->allCards) < 0) {
             return 0;
-        } else
+        } else {
             return count($this->allCards);
+        }
     }
 
-    public function deal(int $number) {
+    public function deal(int $number)
+    {
         if (count($this->allCards) == 0) {
             return;
         }

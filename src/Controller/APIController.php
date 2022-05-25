@@ -16,7 +16,7 @@ class APIController extends AbstractController
     public function deckAPI(): Response
     {
         $card = new \App\Card\Deck();
-        
+
         $data = [
             'title' => 'Deck API',
             'card_deck' => $card->deck(),
