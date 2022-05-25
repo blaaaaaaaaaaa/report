@@ -23,8 +23,7 @@ class CardController extends AbstractController
             'drawNum' => "/card/deck/draw/2",
             'game' => "/card/deck/deal/2/5",
             'cardDeck2' => "/card/cardDeck2",
-            'allJson' => "/card/api/deck",
-            'shuffleJson' => "/card/api/deck/shuffle",
+            'deckAPI' => "/card/api/deck",
         ]);
     }
 
@@ -132,5 +131,19 @@ class CardController extends AbstractController
         ];
 
         return $this->render('card/game.html.twig', $data);
+    }
+
+    /**
+     * @Route("/card/cardDeck2/", name="cardDeck2")
+     */
+    public function cardDeck2(SessionInterface $session): Response
+    {
+        $deck = new \App\Card\Deck();
+        $session->set("deck", $deck);
+        $data = [
+            'card_deck' => $deck->deck(),
+        ];
+        
+        return $this->render('card/deck2.html.twig', $data);
     }
 }

@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Deck jokers{% endblock %}
+
+{% block content %}
+
+<h1 class="arubrik">Deck of Cards with Jokers</h1>
+<div class="content">
+    {% for card in card_deck %}
+        <img class="cards" src="{{ asset("../img/cards/" ~ card ~ ".png") }}" width="100" height="140" alt="{{card}}">
+    {% endfor %}
+    <img class="cards" src="{{ asset("img/cards/Joker2.png") }}" width="100" height="140" alt="joker">
+    <img class="cards" src="{{ asset("img/cards/Joker1.png") }}" width="100" height="140" alt="joker">
+</div>
+
+{% endblock %}

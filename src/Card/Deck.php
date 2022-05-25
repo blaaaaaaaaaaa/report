@@ -2,6 +2,8 @@
 
 namespace App\Card;
 
+use App\Card\Card;
+
 class Deck {
     public $numCards = 52;
     private $values = array('2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'D', 'K', 'A');
